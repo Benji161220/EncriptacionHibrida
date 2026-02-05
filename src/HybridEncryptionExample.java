@@ -31,8 +31,7 @@ public class HybridEncryptionExample {
         System.out.println("Mensaje cifrado: " + Base64.getEncoder().encodeToString(encryptedMessage));
         System.out.println("Clave cifrada: " + Base64.getEncoder().encodeToString(claveCifrada));
         byte[] claveDescifrada = descifrarConRSA(claveCifrada, privateKey);
-        SecretKey nuevaClave = new SecretKeySpec(claveDescifrada, "AES");
-        String decryptedMessage = decrypt(encryptedMessage, nuevaClave);
+        String decryptedMessage = decrypt(encryptedMessage, new SecretKeySpec(claveDescifrada, "AES"));
         System.out.println("Mensaje descifrado: " + decryptedMessage);
 
 
